@@ -1,4 +1,8 @@
-ATS friendly resume for software engineers.
+# Resume
+### ATS friendly resume for software engineers.
+
+> [!IMPORTANT]
+> ATS friendliness depends a lot on the contents of the resume.
 
 ## Motivation
 I was creating a resume in Latex because Managing the formatting on google docs was difficult. I started searching for ATS-friendly resumes, and I came across [@sb2nov resume](https://github.com/sb2nov/resume) which inspired me. But there were some tweaks I needed so made this.
