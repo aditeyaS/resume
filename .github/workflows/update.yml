@@ -28,4 +28,4 @@ jobs:
           git config --global user.email "this.is.aditeya@gmail.com"
           git config --global user.name "GH Action"
           git add .
-          git diff --quiet && git diff --staged --quiet || (git commit -m "updating" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "latest update" && git push)

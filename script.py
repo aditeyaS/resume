@@ -5,7 +5,9 @@ FILE_NAME = "resume"
 
 def compile_tex_to_pdf():
     subprocess.run(["mkdir", "tmp"])
-    subprocess.run(["pdflatex", f"{FILE_NAME}.tex"], check=True)
+    subprocess.run(
+        ["pdflatex", "-output-directory=tmp", f"{FILE_NAME}.tex"], check=True
+    )
     print(f"Success: Generating resume")
     subprocess.run(["mv", f"tmp/{FILE_NAME}.pdf", "."])
 
