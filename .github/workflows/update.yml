@@ -2,9 +2,11 @@ name: Build and update
 
 on:
   push:
-    branches: [ main ]
+    paths:
+      - 'resume.tex'
   pull_request:
-    branches: [ main ]
+    paths:
+      - 'resume.tsx'
 
 permissions:
   contents: write
