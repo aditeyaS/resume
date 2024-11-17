@@ -1,18 +1,17 @@
-name: Build and Run Docker for TeX to PDF and PNG Conversion
+name: Build and update
 
 on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ amin ]
+    branches: [ main ]
 
 permissions:
   contents: write
 
 jobs:
-  build-and-run:
+  build-and-update:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
