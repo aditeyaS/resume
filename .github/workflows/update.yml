@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ amin ]
 
+permissions:
+  contents: write
+
 jobs:
   build-and-run:
     runs-on: ubuntu-latest
