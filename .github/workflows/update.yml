@@ -1,29 +1,26 @@
-name: update
+name: Build and Run Docker for TeX to PDF and PNG Conversion
 
 on:
   push:
-    branches: [main]
-
-permissions:
-  contents: write
+    branches: [ main ]
+  pull_request:
+    branches: [ amin ]
 
 jobs:
-  update:
+  build-and-run:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Set up LaTeX environment
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive texlive-latex-extra texlive-fonts-recommended poppler-utils
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-      - name: Run python script
-        run: |
-          python script.py
+        uses: actions/checkout@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Build Docker image
+        run: docker build -t resume .
+      - name: Run the Docker container
+        run: docker run --rm -v ${{ github.workspace }}:/workspace resume
+      - name: Remove Docker image
+        run: docker rmi resume
       - name: Commit and push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
